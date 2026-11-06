@@ -1,52 +1,91 @@
-Privacy Policy — WishMemo for Steam
-Effective: 4 November 2026. Last updated: 6 November 2026. Applies to WishMemo for Steam 1.0.7 for Microsoft Edge / Chromium browsers and for Firefox.
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy Policy — WishMemo for Steam</title>
+    <style>
+      body {
+        max-width: 720px;
+        margin: 32px auto;
+        padding: 0 16px 64px;
+        font: 16px/1.6 "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        color: #1b2838;
+      }
+      h1,
+      h2 {
+        line-height: 1.25;
+      }
+      .meta {
+        color: #5c6b73;
+        font-size: 14px;
+      }
+      code {
+        font-size: 0.9em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Privacy Policy — WishMemo for Steam</h1>
+    <p class="meta">Effective: 4 November 2026. Last updated: 6 November 2026. Applies to WishMemo for Steam 1.0.7 for Microsoft Edge / Chromium browsers and for Firefox.</p>
+    <p>WishMemo is an independent browser extension. It is not affiliated with Valve Corporation or Steam.</p>
 
-WishMemo is an independent browser extension. It is not affiliated with Valve Corporation or Steam.
+    <h2>Summary</h2>
+    <p>
+      WishMemo stores notes that you type on <strong>your device</strong>, in your browser profile. It does not operate a WishMemo server and does not send your notes to the developer over the internet. It does not call the Steam Web API.
+    </p>
+    <p>
+      This policy describes what stays on your device and what the extension can read on Steam store pages. It is not a claim of “zero data” or absolute security: you choose what to write, and exported backups are ordinary files.
+    </p>
+    <p>Notes saved in Edge, Chrome, and Firefox are not shared automatically. Each browser profile has its own copy.</p>
 
-Summary
-WishMemo stores notes that you type on your device, in your browser profile. It does not operate a WishMemo server and does not send your notes to the developer over the internet. It does not call the Steam Web API.
+    <h2>Information stored on your device</h2>
+    <p>If you write a note, WishMemo saves it in the browser’s extension local storage (<code>chrome.storage.local</code> on Chromium; <code>browser.storage.local</code> / the same storage API on Firefox):</p>
+    <ul>
+      <li>Steam App ID, from the store URL path (for example <code>/app/730/</code>)</li>
+      <li>Game title text copied from the page at save time</li>
+      <li>Your note text (up to 4000 characters)</li>
+      <li>Local timestamps and an internal revision number for two-window edits</li>
+    </ul>
+    <p>These values do not leave your profile unless you export JSON or copy text with the conflict “copy draft” button.</p>
+    <p>WishMemo does not ask for your Steam account, email, payment details, or precise location.</p>
 
-This policy describes what stays on your device and what the extension can read on Steam store pages. It is not a claim of “zero data” or absolute security: you choose what to write, and exported backups are ordinary files.
+    <h2>Information read from web pages</h2>
+    <p>A content script runs only on <code>https://store.steampowered.com/*</code>. On a game page it may read the URL (App ID) and the visible or Open Graph title. It does not use Steam login cookies to call Steam APIs. It does not run on steamcommunity.com, the Steam desktop client, or unrelated sites.</p>
 
-Notes saved in Edge, Chrome, and Firefox are not shared automatically. Each browser profile has its own copy.
+    <h2>Network</h2>
+    <p>The extension does not include analytics, advertising, crash reporting, or a WishMemo backend. Opening a game from the popup navigates to Steam’s store. There is no cloud sync.</p>
 
-Information stored on your device
-If you write a note, WishMemo saves it in the browser’s extension local storage (chrome.storage.local on Chromium; browser.storage.local / the same storage API on Firefox):
+    <h2>Import, export, and clipboard</h2>
+    <ul>
+      <li><strong>Export</strong> downloads a JSON file to your computer.</li>
+      <li>
+        <strong>Import</strong> reads a file you choose and writes notes locally. Everyday saves use a background write queue. Import still stays on-device. On Firefox, choosing Import from the small toolbar popup opens WishMemo in a tab so the system file picker is not interrupted if that popup closes.
+      </li>
+      <li><strong>Copy local draft</strong> may place text on the clipboard after you click.</li>
+    </ul>
 
-Steam App ID, from the store URL path (for example /app/730/)
-Game title text copied from the page at save time
-Your note text (up to 4000 characters)
-Local timestamps and an internal revision number for two-window edits
-These values do not leave your profile unless you export JSON or copy text with the conflict “copy draft” button.
+    <h2>Permissions</h2>
+    <p>WishMemo requests the <code>storage</code> permission only. Steam store URLs are content-script matches so the panel can appear on game pages. That is not access to your full browsing history. The Firefox package declares that it does not collect data (<code>data_collection_permissions.required: ["none"]</code>).</p>
 
-WishMemo does not ask for your Steam account, email, payment details, or precise location.
+    <h2>Your controls</h2>
+    <ul>
+      <li>Edit notes on the game page or in the popup.</li>
+      <li>Delete a note with the clear/delete action (confirmation required). Empty autosave does not delete.</li>
+      <li>Uninstalling typically removes that profile’s extension local storage.</li>
+      <li>Loading the extension from a new unpacked folder may create a new extension ID on Chromium; Firefox uses a fixed add-on ID. Export JSON before switching install paths or browsers.</li>
+    </ul>
 
-Information read from web pages
-A content script runs only on https://store.steampowered.com/*. On a game page it may read the URL (App ID) and the visible or Open Graph title. It does not use Steam login cookies to call Steam APIs. It does not run on steamcommunity.com, the Steam desktop client, or unrelated sites.
+    <h2>Children</h2>
+    <p>WishMemo is not directed at children under 13 and does not knowingly collect children’s information.</p>
 
-Network
-The extension does not include analytics, advertising, crash reporting, or a WishMemo backend. Opening a game from the popup navigates to Steam’s store. There is no cloud sync.
+    <h2>Changes</h2>
+    <p>If storage or network behavior changes, this policy should be updated and the last-updated date changed.</p>
 
-Import, export, and clipboard
-Export downloads a JSON file to your computer.
-Import reads a file you choose and writes notes locally. Everyday saves use a background write queue. Import still stays on-device. On Firefox, choosing Import from the small toolbar popup opens WishMemo in a tab so the system file picker is not interrupted if that popup closes.
-Copy local draft may place text on the clipboard after you click.
-Permissions
-WishMemo requests the storage permission only. Steam store URLs are content-script matches so the panel can appear on game pages. That is not access to your full browsing history. The Firefox package declares that it does not collect data (data_collection_permissions.required: ["none"]).
+    <h2>This policy page</h2>
+    <p>If you are reading this on GitHub Pages, the page is a static file. WishMemo does not run analytics on it. GitHub may process visitor IP addresses and logs under GitHub’s own privacy policy.</p>
 
-Your controls
-Edit notes on the game page or in the popup.
-Delete a note with the clear/delete action (confirmation required). Empty autosave does not delete.
-Uninstalling typically removes that profile’s extension local storage.
-Loading the extension from a new unpacked folder may create a new extension ID on Chromium; Firefox uses a fixed add-on ID. Export JSON before switching install paths or browsers.
-Children
-WishMemo is not directed at children under 13 and does not knowingly collect children’s information.
-
-Changes
-If storage or network behavior changes, this policy should be updated and the last-updated date changed.
-
-This policy page
-If you are reading this on GitHub Pages, the page is a static file. WishMemo does not run analytics on it. GitHub may process visitor IP addresses and logs under GitHub’s own privacy policy.
-
-Contact
-Use the support email published on the Microsoft Edge Add-ons listing, the Chrome Web Store listing, or the Firefox Add-ons (AMO) listing. Do not contact Valve or Steam support about WishMemo.
+    <h2>Contact</h2>
+    <p>Use the support email published on the Microsoft Edge Add-ons listing, the Chrome Web Store listing, or the Firefox Add-ons (AMO) listing. Do not contact Valve or Steam support about WishMemo.</p>
+  </body>
+</html>
